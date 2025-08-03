@@ -1,27 +1,32 @@
+"use client"
 import Image from 'next/image';
 import { mediaPage } from '../constants/content';
 import { images } from '../constants/images';
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+
+const responsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1
+  }
+};
 
 export default function Media() {
-  const mediaItems = [
-    {
-      ...mediaPage.items[0],
-      image: images.media.retreat
-    },
-    {
-      ...mediaPage.items[1],
-      image: images.media.service
-    },
-    {
-      ...mediaPage.items[2],
-      image: images.media.workshop
-    },
-    {
-      ...mediaPage.items[3],
-      image: images.media.discourse
-    },
-  ];
-
+  
   return (
     <div className="min-h-screen bg-amber-50">
       {/* Hero Section */}
@@ -59,43 +64,18 @@ export default function Media() {
           </div>
         </div>
 
-        {/* Media Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {mediaItems.map((item, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="relative h-64">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  className="object-cover"
-                />
-                {item.type === "video" && (
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="bg-black/50 rounded-full p-4">
-                      <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
-                  </div>
-                )}
-              </div>
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-xl font-bold text-amber-900">
-                    {item.title}
-                  </h3>
-                  <span className="text-sm text-gray-500">
-                    {item.date}
-                  </span>
-                </div>
-                <p className="text-gray-700">
-                  {item.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+        <Carousel responsive={responsive}>
+        {images.mediaImages.map((src, idx) => (
+          <div key={idx} className="relative h-64 w-full">
+            <Image
+              src={src}
+              alt={`Media ${idx + 1}`}
+              fill
+              className="object-cover rounded-lg"
+            />
+          </div>
+        ))}
+      </Carousel>
 
         {/* Load More Button */}
         <div className="text-center mt-12">

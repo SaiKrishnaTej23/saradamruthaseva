@@ -4,7 +4,7 @@
 // import { HeartIcon, CurrencyRupeeIcon, BuildingOfficeIcon, PhoneIcon, EnvelopeIcon, UserGroupIcon, AcademicCapIcon, GiftIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import Link from 'next/link';
-import { homePage } from './constants/content';
+import { homePage, mediaPage } from './constants/content';
 import { images } from './constants/images';
 
 export default function Home() {
@@ -136,7 +136,7 @@ export default function Home() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {images.updates.map((updateImage, index) => (
+            {images.mediaImages.filter((_, index) => index < 3).map((updateImage, index) => (
               <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden">
                 <div className="relative h-48">
                   <Image

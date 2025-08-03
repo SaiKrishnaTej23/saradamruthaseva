@@ -1,15 +1,19 @@
+'use client';
+import { useState } from 'react';
 import Image from 'next/image';
 import { donatePage } from '../constants/content';
 import { images } from '../constants/images';
 
 export default function Donate() {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-amber-50">
       {/* Hero Section */}
       <div className="relative h-[40vh] bg-amber-900">
         <div className="absolute inset-0">
           <Image 
-            src={images.donation}
+            src={images.hero}
             alt="Donation Hero"
             fill
             className="object-cover"
@@ -55,7 +59,10 @@ export default function Donate() {
                   </li>
                 ))}
               </ul>
-              <button className="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-6 rounded-full transition-colors">
+              <button
+                className="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-6 rounded-full transition-colors"
+                onClick={() => setOpen(true)}
+              >
                 {donatePage.hero.title}
               </button>
             </div>
@@ -90,6 +97,28 @@ export default function Donate() {
           </div>
         </div>
       </div>
+
+      {/* Modal Dialog */}
+      {open && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80">
+          <button
+            className="absolute top-4 right-4 text-white text-3xl z-10"
+            onClick={() => setOpen(false)}
+            aria-label="Close"
+          >
+            &#10005;
+          </button>
+          <div className="relative w-full h-full">
+            <Image
+              src={images.donation}
+              alt="Support Our Mission"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
-} 
+}

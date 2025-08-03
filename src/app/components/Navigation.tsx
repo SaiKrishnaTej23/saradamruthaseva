@@ -18,7 +18,7 @@ export default function Navigation() {
             <Link href="/" className="flex items-center">
               <div className="relative h-12 w-12 overflow-hidden rounded-full">
                 <Image
-                  src={images.temple.exterior}
+                  src={images.logo}
                   alt="Saradamrutha Seva Trust Logo"
                   fill
                   className="object-cover"
