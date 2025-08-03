@@ -5,8 +5,7 @@ import { motion } from 'framer-motion';
 import { mediaPage } from '../constants/content';
 import { images } from '../constants/images';
 import { ReactNode, useState } from 'react';
-import Link from 'next/link';
-import { PhotoIcon, VideoCameraIcon } from '@heroicons/react/24/outline';
+import { VideoCameraIcon } from '@heroicons/react/24/outline';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },

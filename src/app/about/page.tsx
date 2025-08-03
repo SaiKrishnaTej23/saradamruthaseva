@@ -35,9 +35,9 @@ const Section = ({ children, className }: { children: ReactNode, className?: str
 );
 
 const valueIcons = [
-  <HeartIcon className="w-10 h-10" />,
-  <SparklesIcon className="w-10 h-10" />,
-  <ScaleIcon className="w-10 h-10" />
+  <HeartIcon key="heart" className="w-10 h-10" />,
+  <SparklesIcon key="sparkles" className="w-10 h-10" />,
+  <ScaleIcon key="scale" className="w-10 h-10" />
 ];
 
 export default function AboutUs() {

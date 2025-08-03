@@ -30,9 +30,9 @@ const Section = ({ children, className }: { children: ReactNode, className?: str
 );
 
 const optionIcons = [
-  <GiftIcon className="w-10 h-10" />,
-  <CalendarDaysIcon className="w-10 h-10" />,
-  <UserIcon className="w-10 h-10" />
+  <GiftIcon key="gift" className="w-10 h-10" />,
+  <CalendarDaysIcon key="calendar" className="w-10 h-10" />,
+  <UserIcon key="user" className="w-10 h-10" />
 ];
 
 export default function Donate() {
@@ -81,7 +81,7 @@ export default function Donate() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mb-24">
             {donatePage.options.map((option, index) => (
               <motion.div
-                key={index}
+                key={option.title}
                 variants={fadeInUp}
                 whileHover={{ y: -10, scale: 1.03 }}
                 className="bg-white rounded-xl shadow-lg p-8 flex flex-col"

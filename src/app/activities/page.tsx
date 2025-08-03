@@ -31,10 +31,10 @@ const Section = ({ children, className }: { children: ReactNode, className?: str
 );
 
 const activityIcons = [
-  <SparklesIcon className="w-8 h-8 mr-4 text-amber-600" />,
-  <AcademicCapIcon className="w-8 h-8 mr-4 text-amber-600" />,
-  <UserGroupIcon className="w-8 h-8 mr-4 text-amber-600" />,
-  <GlobeAltIcon className="w-8 h-8 mr-4 text-amber-600" />
+  <SparklesIcon key="sparkles" className="w-8 h-8 mr-4 text-amber-600" />,
+  <AcademicCapIcon key="academic" className="w-8 h-8 mr-4 text-amber-600" />,
+  <UserGroupIcon key="usergroup" className="w-8 h-8 mr-4 text-amber-600" />,
+  <GlobeAltIcon key="globe" className="w-8 h-8 mr-4 text-amber-600" />
 ];
 
 const activityImages = [
@@ -87,7 +87,7 @@ export default function Activities() {
           <div className="space-y-20">
             {activitiesPage.activities.map((activity, index) => (
               <motion.div
-                key={index}
+                key={activity.title}
                 variants={fadeInUp}
                 className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
               >

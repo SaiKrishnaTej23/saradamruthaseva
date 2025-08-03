@@ -29,7 +29,16 @@ const Section = ({ children, className }: { children: ReactNode, className?: str
   </motion.section>
 );
 
-const InputField = ({ id, name, label, type = 'text', required = true, rows = 4 }) => (
+interface InputFieldProps {
+  id: string;
+  name: string;
+  label: string;
+  type?: string;
+  required?: boolean;
+  rows?: number;
+}
+
+const InputField = ({ id, name, label, type = 'text', required = true, rows = 4 }: InputFieldProps) => (
   <motion.div variants={fadeInUp} className="relative">
     <input
       id={id}
