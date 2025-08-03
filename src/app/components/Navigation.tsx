@@ -26,6 +26,7 @@ export default function Navigation() {
 
   const linkColor = isScrolled ? 'text-gray-800' : 'text-white';
   const logoTextColor = isScrolled ? 'text-amber-900' : 'text-white';
+  const linkHover = isScrolled ? 'hover:bg-gray-200' : 'hover:bg-black/10';
 
   return (
     <motion.nav
@@ -58,7 +59,7 @@ export default function Navigation() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 ${linkColor} hover:bg-black/10`}
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 ${linkColor} ${linkHover}`}
               >
                 {item.name}
               </Link>
