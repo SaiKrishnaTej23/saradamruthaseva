@@ -4,7 +4,7 @@
 // import { HeartIcon, CurrencyRupeeIcon, BuildingOfficeIcon, PhoneIcon, EnvelopeIcon, UserGroupIcon, AcademicCapIcon, GiftIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import Link from 'next/link';
-import { homePage, mediaPage } from './constants/content';
+import { homePage } from './constants/content';
 import { images } from './constants/images';
 
 export default function Home() {
